@@ -1,9 +1,43 @@
 using System;
+using System.Data;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep4 World!");
+       DisplayWelcomeMessage();
+       string userName = PromptUserName();
+       int userNumber = PromptUserNumber();
+
+       int squaredNumber = SquareNumber(userNumber);
+       DisplayResult(userName,squaredNumber);
+    }
+    static void DisplayWelcomeMessage()
+    {
+        Console.WriteLine("Welcome to this program!");
+    }
+
+    static string PromptUserName()
+    {
+        Console.Write("Enter your name please: ");
+        string name = Console.ReadLine();
+        
+        return name;
+    }
+        static int PromptUserNumber()
+    {
+        Console.Write("Enter your favorite number please: ");
+        int number = int.Parse(Console.ReadLine());
+
+        return number;
+    }
+    static int SquareNumber(int number)
+    {
+       int square = number * number;
+       return square; 
+    }
+    static void DisplayResult(string name, int square)
+    {
+        Console.WriteLine($"{name}, the square of your number is {square}");
     }
 }
